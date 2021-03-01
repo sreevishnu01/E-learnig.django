@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <title>{% block title %}Educa{% endblock %}</title>
+  <link href="{% static 'css/base.css'%}" rel="stylesheet">
+</head>
+
+<body>
+  <div class="navbar">
+    <ul class="menu">
+      <li id="header"><a href="/">Educa</a></li>
+      {% if request.user.is_authenticated %}
+      <li><a href="{% url 'logout'%}"> Sign out</a></li>
+      {% else %}
+      <li><a href="{% url  'login' %}"> Sign in</a></li>
+      {% endif %}
+    </ul>
+  </div>
+  <div id="content">
+    {% block content %}
+    {% endblock %}
+  </div>
+  <!-- site footer -->
+  <!--<footer id="footer-main">-->
+  <!--    <p>Copyright &copy; 2021 war</p>-->
+
+  <!--</footer>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> -->
+  <script>
+    $(document).ready(function() { 
+     
+    });
+  </script>
+</body>
+
+</html>
